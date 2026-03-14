@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>書籍捐贈平台</title>
+  <link rel="stylesheet" href="./donateMoney.css">
+  
+</head>
+
+<body>
+  <div class="container"><img src="./Donate_bg.jpg" width="1900px"></div>
+    <nav class="nav-on-top">
+        <div class="logo" id="logo" style="display: flex; align-items: center;">
+            <a href="../home/home.html"><img src="../img/web_Logo.png " alt="logo" draggable="false"></a>
+            BOOKSHARE
+        </div>
+        <div class="topPagination">
+            <div class="dropdown">
+                <button class="dropdown-btn">捐</button>
+                <div class="dropdown-content">
+                    <a href="../donateBook/donateBook.html">捐書</a>
+                    <a href="../donateMoney/donateMoney.html">捐錢</a>
+                </div>
+            </div>
+            <a class="nor" href="../thankYou/thankYou.html">感謝牆</a>
+            <a class="nor" href="../memberShip/memberShip.html">加入會員</a>
+            <a class="nor" href="../oneBook/oneBook.html">集點活動</a>
+            <a class="nor" href="../wishList/wishList.html">願望清單</a>
+        </div>
+    </nav>
+  
+  <section class="highlight fade-in">
+    <h2>您的捐款將支持</h2><br>
+    <div class="support-items">
+      <div><img src="icon-3-玩具車.png" alt="玩具車" style="width: 50px; height: 50px; margin-right: 8px; vertical-align: middle;">資助書籍運送</div>
+      <div><img src="icon-4-書.png" alt="書" style="width: 50px; height: 50px; margin-right: 8px; vertical-align: middle;">購買新書</div>
+    </div>
+  </section>
+
+  <!-- 切換按鈕區塊 -->
+  <div class="switch-buttons">
+    <button class="switch-btn active" id="btn-donate" onclick="switchTab('donate')">捐款</button>
+    <button class="switch-btn" id="btn-member" onclick="switchTab('member')">會員</button>
+  </div>
+
+  <!-- 捐款表單 -->
+  <section class="form-section fade-in" id="tab-donate">
+    <form onsubmit="return validateDonationForm()">
+      <label>銀行代碼 / 信用卡卡號</label>
+      <div style="display: flex; gap: 1rem;">
+        <input type="text" style="flex: 1" placeholder="銀行代碼" required>
+        <input type="text" style="flex: 3" placeholder="信用卡號碼" required>
+      </div>
+      <label>聯絡電話</label>
+      <input type="text" placeholder="請輸入電話" required>
+      <label>電子信箱</label>
+      <input type="text" placeholder="請輸入 Email" required>
+      <label>捐贈金額</label>
+      <input type="text" placeholder="捐贈金額需至少為 50 元" required>
+      <br>
+      <button type="submit" class="submit-button">
+        立即捐贈  <img src="MoneyIcon.png" alt="" class="donate">
+      </button>
+    </form>
+  </section>
+
+  <!-- 會員等級卡片 -->
+  <section class="member-level-section fade-in" id="tab-member" style="display:none;">
+    <div class="member-level-cards">
+        <div class="member-card">
+            <div class="level-img level-silver">SILVER</div>
+            <div class="level-content">
+                <div><b>每月費用: <span class="price">$100</span></b></div>
+                <div>每月獲得：200積分</div>
+                <div>享有9折的對換積分折扣</div>
+                <div>銀會員福利：</div>
+                <div class="level-benefit">會員專屬書籍推薦和資訊<br>佈學徽章、小吊飾</div>
+            </div>
+        </div>
+        <div class="member-card">
+            <div class="level-img level-gold">GOLD</div>
+            <div class="level-content">
+                <div><b>每月費用: <span class="price">$300</span></b></div>
+                <div>每月獲得：400積分</div>
+                <div>享有8折的對換積分折扣</div>
+                <div>黃金會員福利：</div>
+                <div class="level-benefit">同銀會員福利<br>優先報名參加特別活動機會</div>
+            </div>
+        </div>
+        <div class="member-card">
+            <div class="level-img level-diamond">DIAMOND</div>
+            <div class="level-content">
+                <div><b>每月費用: <span class="price">$500</span></b></div>
+                <div>每月獲得：500積分</div>
+                <div>享有7折的對換積分折扣</div>
+                <div>鑽石會員福利：</div>
+                <div class="level-benefit">同黃金會員福利<br>限量版書籍對換機會</div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+ 
+
+  <script>
+    function switchTab(tab) {
+      document.getElementById('tab-donate').style.display = (tab === 'donate') ? '' : 'none';
+      document.getElementById('tab-member').style.display = (tab === 'member') ? '' : 'none';
+      document.getElementById('btn-donate').classList.toggle('active', tab === 'donate');
+      document.getElementById('btn-member').classList.toggle('active', tab === 'member');
+    }
+
+    const buttons = document.querySelectorAll('.amounts button');
+    const hiddenInput = document.getElementById('donationAmount');
+    let selectedBtn = null;
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+        selectedBtn = btn;
+      });
+
+      btn.addEventListener('mouseenter', () => {
+        btn.classList.add('selected');
+      });
+
+      btn.addEventListener('mouseleave', () => {
+        if (btn !== selectedBtn) {
+          btn.classList.remove('selected');
+        }
+      });
+    });
+
+
+    const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.fade-in').forEach(el => {
+   
+    if (el.tagName.toLowerCase() !== 'img') {
+      observer.observe(el);
+    }
+  });
+ 
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      selectedBtn = btn;
+      hiddenInput.value = btn.textContent.replace("NT ", ""); 
+    });
+
+    btn.addEventListener('mouseenter', () => {
+      btn.classList.add('selected');
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      if (btn !== selectedBtn) {
+        btn.classList.remove('selected');
+      }
+    });
+  });
+
+  function validateDonationForm() {
+    const amountInput = document.querySelector('input[placeholder="請輸入金額"]');
+    const amount = parseInt(amountInput.value, 10);
+
+    if (isNaN(amount) || amount < 50) {
+      alert("捐贈金額需至少為 50 元");
+      amountInput.focus();
+      return false; 
+    }
+
+    return true; 
+  }
+
+  // 會員卡片點擊提示
+  document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.member-card');
+    cards.forEach(function(card, idx) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', function() {
+        let msg = '';
+        if(idx === 0) {
+          msg = 'SILVER 會員\加入成功!感謝您的支持!';
+        } else if(idx === 1) {
+          msg = 'GOLD 會員\加入成功!感謝您的支持!';
+        } else if(idx === 2) {
+          msg = 'DIAMOND 會員\加入成功!感謝您的支持!';
+        }
+        alert(msg);
+      });
+    });
+  });
+  </script>
+</body>
+</html>

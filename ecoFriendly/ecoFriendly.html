@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BOOKSHARE - 點數兌換商城</title>
+    <link rel="stylesheet" href="ecoFriendly.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <nav class="nav-on-top">
+        <div class="logo" id="logo" style="display: flex; align-items: center;"><img src="../img/web_Logo.png"
+                alt="logo" draggable="false">BOOKSHARE</div>
+        <div class="topPagination">
+            <div class="dropdown">
+                <button class="dropdown-btn">捐</button>
+                <div class="dropdown-content">
+                    <a href="../donateBook/donateBook.html">捐書</a>
+                    <a href="../donateMoney/donateMoney.html">捐錢</a>
+                </div>
+            </div>
+            <a class="nor" href="../thankYou/thankYou.html">感謝牆</a>
+            <a class="nor" href="../memberShip/memberShip.html">加入會員</a>
+            <a class="nor" href="../oneBook/oneBook.html">集點活動</a>
+            <a class="nor" href="../wishList/wishList.html">願望清單</a>
+        </div>
+    </nav>
+
+    <main class="shop-container">
+        <div class="points-display">
+            <div class="points-card">
+                <i class="fas fa-leaf points-icon"></i>
+                <div class="points-info">
+                    <h2>我的點數</h2>
+                    <p class="points-number">8,000</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="featured-section">
+            <h2>精選書籍</h2>
+            <div class="featured-items">
+                <div class="featured-item">
+                    <div class="image-placeholder">
+                        <img src="../img/LinearAlgebra.jpg" alt="線性代數原文書" draggable="false">
+                    </div>
+                    <div class="item-info">
+                        <h3>線性代數 原文書</h3>
+                        <p class="points-required">5000 點</p>
+                        <button class="exchange-btn">立即兌換</button>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="image-placeholder">
+                        <img src="../img/Littleprince.jpg" alt="小王子" draggable="false">
+                    </div>
+                    <div class="item-info">
+                        <h3>小王子</h3>
+                        <p class="points-required">1000 點</p>
+                        <button class="exchange-btn">立即兌換</button>
+                    </div>
+                </div>
+                <div class="featured-item">
+                    <div class="image-placeholder">
+                        <img src="../img/Oldmanandsea.jpg" alt="老人與海" draggable="false">
+                    </div>
+                    <div class="item-info">
+                        <h3>老人與海</h3>
+                        <p class="points-required">2000 點</p>
+                        <button class="exchange-btn">立即兌換</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div class="filter-bar">
+                <button class="filter-btn active">全部書籍</button>
+                <button class="filter-btn">教科書</button>
+                <button class="filter-btn">童書</button>
+                <button class="filter-btn">小說</button>
+            </div>
+
+            <div class="products-grid">
+                <!-- 教科書 -->
+                <div class="product-card" data-category="教科書">
+                    <div class="image-placeholder">
+                        <img src="../img/Calculus.jpg" alt="微積分原文書" draggable="false">
+                    </div>
+                    <div class="product-info">
+                        <h3>微積分 原文書</h3>
+                        <p class="description">經典微積分教材，涵蓋極限、導數與積分概念</p>
+                        <div class="product-footer">
+                            <p class="points-required">4500 點</p>
+                            <button class="exchange-btn">兌換</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="教科書">
+                    <div class="image-placeholder">
+                        <img src="../img/LinearAlgebra.jpg" alt="線性代數原文書" draggable="false">
+                    </div>
+                    <div class="product-info">
+                        <h3>線性代數 原文書</h3>
+                        <p class="description">系統介紹線性代數理論，適合工科與理科學生使用</p>
+                        <div class="product-footer">
+                            <p class="points-required">5000 點</p>
+                            <button class="exchange-btn">兌換</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="教科書">
+                    <div class="image-placeholder">
+                        <img src="../img/Espanol.jpg" alt="西語初級入門" draggable="false">
+                    </div>
+                    <div class="product-info">
+                        <h3>西語初級入門</h3>
+                        <p class="description">入門西班牙語學習資源，涵蓋基本語法與會話</p>
+                        <div class="product-footer">
+                            <p class="points-required">4000 點</p>
+                            <button class="exchange-btn">兌換</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 童書 -->
+                <div class="product-card" data-category="童書">
+                    <div class="image-placeholder">
+                        <img src="../img/Littleprince.jpg" alt="小王子" draggable="false">
+                    </div>
+                    <div class="product-info">
+                        <h3>小王子</h3>
+                        <p class="description">經典寓言故事，探索童心與想像的世界</p>
+                        <div class="product-footer">
+                            <p class="points-required">1000 點</p>
+                            <button class="exchange-btn">兌換</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="童書">
+                    <div class="image-placeholder">
+                        <img src="../img/HungryBug.jpg" alt="好餓好餓的毛毛蟲" draggable="false">
+                    </div>
+                    <div class="product-info">
+                        <h3>好餓好餓的毛毛蟲</h3>
+                        <p class="description">色彩鮮明、互動設計，適合幼兒語言啟蒙</p>
+                        <div class="product-footer">
+                            <p class="points-required">1000 點</p>
+                            <button class="exchange-btn">兌換</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="童書">
+                    <div class="image-placeholder">
+                        <img src="../img/MagicFinger.jpg" alt="魔法手指 原文書" draggable="false">
+                    </div>
+                    <div class="product-info">
+                        <h3>魔法手指 原文書</h3>
+                        <p class="description">幽默溫馨的奇幻故事，啟發孩子的創意思維</p>
+                        <div class="product-footer">
+                            <p class="points-required">1500 點</p>
+                            <button class="exchange-btn">兌換</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 小說 -->
+                <div class="product-card" data-category="小說">
+                    <div class="image-placeholder">
+                        <img src="../img/Oldmanandsea.jpg" alt="老人與海" draggable="false">
+                    </div>
+                    <div class="product-info">
+                        <h3>老人與海</h3>
+                        <p class="description">海明威經典之作，描寫人與自然的奮戰精神</p>
+                        <div class="product-footer">
+                            <p class="points-required">2000 點</p>
+                            <button class="exchange-btn">兌換</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="小說">
+                    <div class="image-placeholder">
+                        <img src="../img/Store.jpg" alt="解憂雜貨店" draggable="false">
+                    </div>
+                    <div class="product-info">
+                        <h3>解憂雜貨店</h3>
+                        <p class="description">東野圭吾感人小說，串連時空的人性故事</p>
+                        <div class="product-footer">
+                            <p class="points-required">3000 點</p>
+                            <button class="exchange-btn">兌換</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card" data-category="小說">
+                    <div class="image-placeholder">
+                        <img src="../img/College.jpg" alt="你有念大學嗎?" draggable="false">
+                    </div>
+                    <div class="product-info">
+                        <h3>你有念大學嗎?</h3>
+                        <p class="description">吳念真的真實書寫，探討教育與人生抉擇</p>
+                        <div class="product-footer">
+                            <p class="points-required">2500 點</p>
+                            <button class="exchange-btn">兌換</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="shop-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>關於點數兌換</h3>
+                <p>每捐贈一本書籍可獲得 100 點</p>
+                <p>點數永久有效，可隨時兌換商品</p>
+            </div>
+            <div class="footer-section">
+                <h3>聯絡我們</h3>
+                <p>如有任何問題，請聯繫客服</p>
+                <p>Email: ericchang8877@mail.yzu.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="ecoFriendly.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>感謝牆</title>
+    <link rel="stylesheet" href="thankYou.css">
+</head>
+
+<body>
+    <nav class="nav-on-top">
+        <div class="logo" id="logo" style="display: flex; align-items: center;">
+            <a href="../home/home.html"><img src="../img/web_Logo.png " alt="logo" draggable="false"></a>
+            BOOKSHARE
+        </div>
+        <div class="topPagination">
+            <div class="dropdown">
+                <button class="dropdown-btn">捐</button>
+                <div class="dropdown-content">
+                    <a href="../donateBook/donateBook.html">捐書</a>
+                    <a href="../donateMoney/donateMoney.html">捐錢</a>
+                </div>
+            </div>
+            <a class="nor" href="../thankYou/thankYou.html">感謝牆</a>
+            <a class="nor" href="../memberShip/memberShip.html">加入會員</a>
+            <a class="nor" href="../oneBook/oneBook.html">集點活動</a>
+            <a class="nor" href="../wishList/wishList.html">願望清單</a>
+        </div>
+    </nav>
+
+    <div class="sky">
+        <div id="leaf-container"></div>
+        <div class="tree">
+            <div class="tree-img"></div>
+            <div class="tree-info">
+                <h1>感謝您的支持！</h1>
+                <p>累積捐款金額：<span id="total-money">0</span> 元</p>
+                <p>累積捐書數量：<span id="total-books">0</span> 本</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="land"></div>
+    <div class="terra">
+        <div class="root-img"></div>
+        <div class="list">
+            <h1>歷年善款芳名錄</h1>
+                <ul class="pdf-list">
+                    <li><a href="#">2025年04月 芳名錄.pdf</a></li>
+                    <li><a href="#">2025年03月 芳名錄.pdf</a></li>
+                    <li><a href="#">2025年02月 芳名錄.pdf</a></li>
+                    <li><a href="#">2025年01月 芳名錄.pdf</a></li>
+                    <li><a href="#">2024年 芳名錄.pdf</a></li>
+                </ul>
+        </div>
+    </div>
+    <button id="back-to-top" title="回到頂部">↑</button>
+
+    <script src="thankYou.js"></script>
+</body>
+
+</html>

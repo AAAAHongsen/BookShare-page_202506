@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>註冊頁面</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-image: url(./background.jpeg);
+      background-size: cover;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      position: relative;
+    }
+
+    /* .circle-background {
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200vh;
+      height: 200vh;
+      background-color: #3b5c4e;
+      border-radius: 50%;
+      z-index: -1;
+    } */
+
+    .register-box {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .register-box label {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .register-box input[type="text"],
+    .register-box input[type="email"],
+    .register-box input[type="password"] {
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid #444;
+      border-radius: 5px;
+      margin-top: 5px;
+      height: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      height: 60px;
+    }
+
+    .register-btn,
+    .login-btn {
+      padding: 10px 20px;
+      background-color: #f0804b;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      margin: 5px;
+      font-size: 20px;
+    }
+
+    .register-btn:hover,
+    .login-btn:hover {
+      background-color: #f7f7f7;
+      color: #ea4335;
+      border-color: #ea4335;
+      transition: 0.5s;
+    }
+
+    .register-btn:active,
+    .login-btn:active {
+      background-color: black;
+      color: white;
+      border-color: rgb(91, 251, 251);
+      transition: 0.5s;
+    }
+
+    .social-login {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+      padding: 10px 15px;
+      background-color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #555;
+      border: 1px solid #ccc;
+      transition: background-color 0.3s, color 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    a.social-login {
+      text-decoration: none;
+    }
+
+    .social-login img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .google:hover {
+      background-color: #f7f7f7;
+      color: #ea4335;
+      border-color: #ea4335;
+    }
+
+    .google:active {
+      background-color: #ffe5e0;
+    }
+
+    .facebook:hover {
+      background-color: #f0f4ff;
+      color: #1877f2;
+      border-color: #1877f2;
+    }
+
+    .facebook:active {
+      background-color: #dce6ff;
+    }
+
+    .spaced-text {
+      letter-spacing: 1em;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="circle-background"></div>
+
+    <div class="register-box">
+      <label for="fullname">姓 名</label>
+      <input type="text" id="fullname" placeholder="輸入姓名......">
+
+      <label for="email">E - m a i l</label>
+      <input type="email" id="email" placeholder="輸入電子郵件......">
+
+      <label for="password">密 碼</label>
+      <input type="password" id="password" placeholder="設定密碼......">
+
+      <label for="confirm">確認密碼</label>
+      <input type="password" id="confirm" placeholder="再次輸入密碼......">
+
+      <div class="buttons">
+        <button class="register-btn" id="register-btn">註 冊</button>
+        <button class="login-btn" onclick="window.location.href='memberShip.html'">返 回 登 入</button>
+      </div>
+
+      <a class="social-login google" href="registerGoogle.html">
+        <img src="./111.png" alt="Google">
+        <span class="spaced-text">GOOGLE註冊</span>
+      </a>
+
+      <a class="social-login facebook" href="registerFB.html" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook">
+        <span class="spaced-text">FB註冊</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+     const validAccounts =
+      [
+        { username: "testuser", password: "123456" },
+        { username: "ken", password: "123456" },
+        { username: "user@example.com", password: "password" }
+      ];
+
+    function login() {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorDiv = document.getElementById("error-message");
+
+      // 檢查是否為有效帳號
+      const found = validAccounts.find(acc =>
+        acc.username === username && acc.password === password
+      );
+
+      if (found) {
+        // 清除錯誤訊息
+        errorDiv.textContent = "";
+        // 導向登入成功頁面
+        alert("註冊成功！");
+        window.location.href = "./loginsucess.html";
+      } else {
+        errorDiv.textContent = "錯誤，請重新輸入。";
+      }
+    }
+//     // register.js
+// document.getElementById("register-btn").addEventListener("click", async function(event) {
+//   event.preventDefault();
+
+//   const fullname = document.getElementById("fullname").value.trim();
+//   const email = document.getElementById("email").value.trim();
+//   const password = document.getElementById("password").value;
+//   const confirmPassword = document.getElementById("confirm").value;
+
+//   if (!fullname || !email || !password || !confirmPassword) {
+//     alert("請完整填寫所有欄位！");
+//     return;
+//   }
+
+//   if (password !== confirmPassword) {
+//     alert("密碼不一致！");
+//     return;
+//   }
+
+//   // 使用 fetch 發送資料到後端
+//   try {
+//     const res = await fetch("http://localhost:3000/register", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       body: JSON.stringify({ username: fullname, email, password })
+//     });
+
+//     const data = await res.json();
+
+//     if (res.ok) {
+//       alert("註冊成功！");
+//       window.location.href = "registerSucess"; // 註冊成功後跳轉到會員商店頁面
+//     } else {
+//       alert("註冊失敗：" + data.message);
+//     }
+//   } catch (error) {
+//     alert("無法連接伺服器，請稍後再試");
+//     console.error("錯誤:", error);
+//   }
+// });
+
+  </script>
+</body>
+
+</html>

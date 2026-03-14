@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>關於我們 | BOOKSHARE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="aboutUs.css" />
+</head>
+<body>
+  <!-- ✅ 導覽列 -->
+    <nav class="nav-on-top">
+        <div class="logo" id="logo" style="display: flex; align-items: center;">
+            <a href="../home/home.html"><img src="../img/web_Logo.png " alt="logo" draggable="false"></a>
+            BOOKSHARE
+        </div>
+        <div class="topPagination">
+            <div class="dropdown">
+                <button class="dropdown-btn">捐</button>
+                <div class="dropdown-content">
+                    <a href="../donateBook/donateBook.html">捐書</a>
+                    <a href="../donateMoney/donateMoney.html">捐錢</a>
+                </div>
+            </div>
+            <a class="nor" href="../thankYou/thankYou.html">感謝牆</a>
+            <a class="nor" href="../memberShip/memberShip.html">加入會員</a>
+            <a class="nor" href="../oneBook/oneBook.html">集點活動</a>
+            <a class="nor" href="../wishList/wishList.html">願望清單</a>
+        </div>
+    </nav>
+
+  <main class="scroll-container">
+    <!-- 第一區：主選單 -->
+    <section class="content-section">
+      <h1 class="main-title">關於我們</h1>
+      <div class="section-nav">
+        <a href="#section-story" class="circle-link">我們的故事</a>
+        <a href="#section-spirit" class="circle-link">我們的精神</a>
+        <a href="#section-team" class="circle-link">我們的團隊</a>
+      </div>
+    </section>
+
+    <!-- 第二區：e故事 -->
+    <section id="section-story" class="content-section">
+      <h2>我們的故事</h2>
+      <h3>一群人＋一堆書＋一點想改變的瘋狂</h3>
+      <p class="story">我們不是大企業，沒有西裝筆挺、開會開不完的那種人。<br>
+        我們只是一群大學生，有人喜歡書香、有人說要斷捨離、有人只是想把房間整理乾淨。<br>
+        有一天我們發現：「欸，我們的書太多了，但有人根本都買不起。」於是...<br>
+        一個想法就這樣蹦出來了：捐書換點數，點數可以換書。<br>
+        如果不方便捐書，可以訂閱支持我們，換更多書給更多人。
+        然後我們的書就變成了別人的寶，感覺還不錯。</p>
+    </section>
+
+    <!-- 第三區：精神 -->
+    <section id="section-spirit" class="content-section">
+      <h2>我們的精神</h2>
+      <h3>我們相信：每本書都有第二次生命，每個孩子都該有第一次機會</h3>
+      <ul>
+        <li>舊物新用：我們不愛浪費，所以我們超會再利用（媽媽會驕傲）。</li>
+        <li>城市X山區連線：不是蓋橋，我們用書來連接世界。</li>
+        <li>書很重，但愛不嫌重：一本書，背後是滿滿的知識＋關懷。</li>
+        <li>超透明：每一本書的去向都能追蹤，不怕你問。</li>
+      </ul>
+    </section>
+
+    <!-- 第四區：團隊 -->
+    <section id="section-team" class="content-section">
+      <h2>我們的團隊</h2>
+      <p>我們是6個來自同個宇宙的大學生，專長橫跨「說得比做得好」到「做得太多睡不飽」。</p>
+      <div class="team-container">
+        <div class="member" style="background-image: url('img/img1.jpg');"></div>
+        <div class="member" style="background-image: url('img/img2.jpg');"></div>
+        <div class="member" style="background-image: url('img/img3.jpg');"></div>
+        <div class="member" style="background-image: url('img/img4.jpg');"></div>
+        <div class="member" style="background-image: url('img/img5.jpg');"></div>
+        <div class="member" style="background-image: url('img/img6.jpg');"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 彈出視窗 -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <img src="img/img1.jpg" class="popup-photo" id="popup-photo" />
+      <div class="popup-text">
+        <h3 id="popup-name">程式宅</h3>
+        <p id="popup-desc">能跟程式談戀愛的人，負責把整個網站生出來。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 書頁動畫裝飾 -->
+  <div class="floating-page"></div>
+  <div class="floating-page"></div>
+  <div class="floating-page"></div>
+   <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 BOOKSHARE. All rights reserved.</p>
+            <p>聯絡我們：bookshare@mail.yzu.edu.tw ｜ Facebook / Instagram</p>
+
+            <div class="nav-links">
+                <a href="../contactUs/contactUs.html">聯絡我們</a>
+            </div>
+        </div>
+    </footer>
+  <!-- JS -->
+  <script>
+    const popup = document.getElementById("popup");
+    const popupPhoto = document.getElementById("popup-photo");
+    const popupName = document.getElementById("popup-name");
+    const popupDesc = document.getElementById("popup-desc");
+
+    const memberData = [
+      { img: "img/img11.jpg", name: "阿紅|技術宅", desc: "能跟程式談戀愛的人，負責把整個網站生出來。" },
+      { img: "img/img22.jpg", name: "忻育|技術宅", desc: "能跟程式談戀愛的人，負責把整個網站生出來。" },
+      { img: "img/img33.jpg", name: "Tinge嘎|文案王", desc: "最會寫文案、最會逼大家開會。" },
+      { img: "img/img44.jpg", name: "YeahYeah|攝影", desc: "用鏡頭記錄每一個溫暖瞬間。" },
+      { img: "img/img55.jpg", name: "阿黃|美術設計", desc: "超愛用顏色分類書本，強迫症界的天才。" },
+      { img: "img/img66.jpg", name: "溦溦|聯絡達人", desc: "合作洽談都靠他了。" }
+    ];
+
+    document.querySelectorAll(".member").forEach((el, idx) => {
+      el.addEventListener("click", () => {
+        popup.style.display = "flex";
+        popupPhoto.src = memberData[idx].img;
+        popupName.textContent = memberData[idx].name;
+        popupDesc.textContent = memberData[idx].desc;
+      });
+    });
+
+    popup.addEventListener("click", (e) => {
+      if (e.target === popup) popup.style.display = "none";
+    });
+  </script>
+</body>
+</html>

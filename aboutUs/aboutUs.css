@@ -1,0 +1,426 @@
+:root {
+  --gradient-bg: linear-gradient(to bottom, #f3fbf4 0%, #d8f5df 40%, #f3fbf4 100%);
+  --animated-bg: linear-gradient(180deg, #f3fbf4, #d8f5df, #f3fbf4);
+  --skin-color: rgba(246, 235, 227, 1);
+  --darkGreen-color: #3b523a;
+  --tomato-color: rgb(255, 99, 71);
+  --ff-color: rgb(228, 204, 177);
+  --eye-color: rgb(200, 103, 78);
+  --level-color: rgb(46, 96, 83);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  /* font-family: "Noto Serif TC", serif; */
+  font-size: 20px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: var(--skin-color);
+  font-family: 'Microsoft JhengHei', sans-serif;
+}
+/* ========= 區段設計 ========= */
+.scroll-container {
+  height: auto;
+}
+
+.content-section {
+  min-height: 100vh;
+  padding: 100px 40px 60px;
+  background: var(--animated-bg);
+  background-size: 100% 300%;
+  animation: gradientMove 12s ease-in-out infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 64px;
+  font-weight: 900;
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  animation: fadeInDown 1.2s ease;
+}
+
+.section-nav {
+  display: flex;
+  gap: 60px;
+  justify-content: center;
+  animation: fadeInUp 1.2s ease;
+}
+
+.circle-link {
+  width: 240px;
+  height: 240px;
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 26px;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(4px);
+  transition: all 0.4s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.12);
+}
+
+.circle-link:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* ========= 文字排版 ========= */
+h2 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+p, ul {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 2.2;
+  letter-spacing: 0.5px;
+}
+li {
+  margin-bottom: 10px;
+  text-align: start;
+}
+
+/* ========= 團隊介紹 ========= */
+.team-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.member {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-color: #83c38d;
+  cursor: pointer;
+  transition: transform 0.4s, box-shadow 0.4s;
+  animation: bounceIn 1.2s ease;
+}
+
+.member:hover {
+  transform: scale(1.15) rotate(2deg);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ========= Popup 彈出視窗 ========= */
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.35);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  animation: fadeIn 0.5s ease;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: row;
+  background-color:var(--darkGreen-color);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 700px;
+  width: 80%;
+  color: white;
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: slideUp 0.5s ease forwards;
+}
+
+.popup-photo {
+  width: 160px;
+  height: 160px;
+  margin-right: 30px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: #00aaff;
+}
+
+.popup-text h3 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.popup-text p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ========= Keyframes ========= */
+@keyframes gradientMove {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 0% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.1); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes floatPages {
+  0%   { transform: translateY(0) rotate(0deg); }
+  50%  { transform: translateY(-50vh) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✅ 響應式導覽列 CSS 追加（不影響原本任何區塊） */
+nav {
+  height: 9vh;
+  width: 100%;
+  background-color: var(--darkGreen-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  z-index: 10;
+}
+
+nav .logo {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
+  color: rgb(255, 255, 255);
+  margin-left: 2%;
+}
+
+nav .logo img {
+  height: 100%;
+}
+nav .logo a {
+    height: 100%;
+
+}
+nav .topPagination {
+  width: 30%;
+  display: flex;
+  gap: 10%;
+  justify-content: flex-end;
+  padding-right: 2%;
+  white-space: nowrap;
+}
+
+nav .topPagination .nor {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  position: relative;
+}
+
+nav .topPagination a::after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 1.5px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+nav .topPagination a:hover::after {
+  width: 100%;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 400;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.dropdown-btn::after {
+  content: "\25BC";
+  font-size: 0.7em;
+  transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-btn::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  position: absolute;
+  background-color: var(--darkGreen-color);
+  min-width: 120px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  top: 100%;
+  margin-top: 12px;
+}
+
+.dropdown:hover .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-content a {
+  color: rgb(248, 248, 248);
+  font-weight: 600;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+}
+
+.dropdown-content a:hover {
+  background-color: #5f865e;
+  padding-left: 20px;
+}
+
+.dropdown-content a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform: scaleY(0);
+  transition: transform 0.2s ease;
+}
+
+.dropdown-content a:hover::before {
+  transform: scaleY(1);
+}
+
+/* ✅ 響應式調整 */
+@media screen and (max-width: 1400px) {
+  nav .topPagination { width: 35%; gap: 8%; }
+}
+@media screen and (max-width: 1200px) {
+  nav .topPagination { width: 40%; gap: 6%; }
+}
+@media screen and (max-width: 992px) {
+  nav .topPagination { width: 45%; gap: 4%; }
+  nav .topPagination .nor,
+  nav .dropdown-btn { font-size: 0.95rem; }
+  nav .logo { font-size: 0.95rem; }
+}
+@media screen and (max-width: 768px) {
+  nav .topPagination { width: 50%; gap: 3%; padding-right: 1%; }
+  nav .topPagination .nor,
+  nav .dropdown-btn { font-size: 0.9rem; }
+  nav .logo { font-size: 0.9rem; }
+}
+@media screen and (max-width: 576px) {
+  nav .topPagination { width: 55%; gap: 2%; }
+  nav .topPagination .nor,
+  nav .dropdown-btn { font-size: 0.85rem; }
+  nav .logo { font-size: 0.85rem; }
+  .dropdown-content { min-width: 90px; }
+  .dropdown-content a { padding: 8px 10px; font-size: 0.85rem; }
+}
+/* 底部 */
+footer {
+    position: relative;
+    bottom: 0;
+    background-color: #f5f5f5;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.footer-content p {
+    font-size:0.9rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.nav-links {
+    margin-top: 15px;
+}
+
+.nav-links a {
+    margin: 0 10px;
+    text-decoration:underline;
+    color: #444;
+    font-size:0.9rem;
+}

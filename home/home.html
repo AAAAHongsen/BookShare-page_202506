@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--darkGreen-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            transition: opacity 0.5s ease-out;
+        }
+
+        .loading-screen.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #ffffff;
+            border-top: 5px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-top: 20px;
+            font-family: 'Microsoft JhengHei', sans-serif;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loading-screen">
+        <div class="loader"></div>
+        <div class="loading-text">載入中...</div>
+    </div>
+
+    <!-- 畫布當背景 -->
+    <canvas class="webgl"></canvas>
+
+    <!-- 要浮在畫布上的東西 -->
+    <nav class="nav-on-top">
+        <div class="logo" id="logo" style="display: flex; align-items: center;"><img src="../img/web_Logo.png"
+                alt="logo" draggable="false">BOOKSHARE</div>
+        <div class="topPagination">
+            <div class="dropdown">
+                <button class="dropdown-btn">捐</button>
+                <div class="dropdown-content">
+                    <a href="../donateBook/donateBook.html">捐書</a>
+                    <a href="../donateMoney/donateMoney.html">捐錢</a>
+                </div>
+            </div>
+            <a class="nor" href="../thankYou/thankYou.html">感謝牆</a>
+            <a class="nor" href="../memberShip/memberShip.html">加入會員</a>
+            <a class="nor" href="../oneBook/oneBook.html">集點活動</a>
+            <a class="nor" href="../wishList/wishList.html">願望清單</a>
+        </div>
+    </nav>
+    <div class="slogan">
+        <div class="h1">
+            <p>One BOOK</p>
+            <p>One DREAM</p>
+            <p>Endless possibilities</p>
+        </div>
+    </div>
+    <div class="aboutUs">
+        <div class="content01">
+            <h1> Welcome to <br> BOOK SHARE <br>我們是一群想提高優質教育的團體</h1>
+        </div>
+        <div class="information01">
+            <div id="picture01"></div>
+            <div id="content02">
+                <h3>我們的使命</h3>
+                <p>透過一本本書的流動，減少浪費、傳遞知識、分享愛。 <br>
+                    讓每一本書有第二次生命，每一份閱讀的機會，到達每個人手中。<br>
+                   Through the circulation of each and every book, we reduce waste, spread knowledge, and share love.
+Every book deserves a second life, and every reading opportunity should reach everyone.
+                </p>
+                <a href="../aboutUs/aboutUs.html" id="aboutLink">More about us</a>
+            </div>
+        </div>
+        <!-- 吊橋照 -->
+        <div id="picture02"></div>
+    </div>
+    <div class="information02">
+        <div id="picture03"></div>
+        <div id="content03">
+            <p>全球成人識字率平均為86%，但在撒哈拉以南非洲和南亞地區，識字率分別僅為65%和72%，顯示教育資源分配不均。</p>
+        </div>
+        <div id="picture04"></div>
+        <div id="content04">
+            <p>你可能不知道，就在我們生活的這片土地上，偏遠山區的孩童也正面臨著資源匱乏的挑戰。一本課外書，對他們來說，可能是難以取得的奢侈品。</p>
+        </div>
+        <div id="content05">
+            <p>教育資源的不均，讓太多夢想還沒開始就被迫終止...</p>
+        </div>
+        <!-- 火車 -->
+        <div class="train-section">
+            <div class="train-container">
+                <div class="carriage train01">
+                </div>
+                <div class="carriage train02">
+                    <p>教育的距離</p>
+                    <p>不該決定孩子的未來</p>
+                </div>
+                <div class="carriage train03">
+                    <p>這就是寫這網站的初衷</p>
+                </div>
+                <div class="carriage train04">
+                    <p>把手上的二手書</p>
+                    <p>傳遞到需要它們的孩子手中</p>
+                </div>
+                <div class="carriage train05">
+                    <p>加入我們，讓書本繼續旅程</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 輪轉動畫區 -->
+    <div class="introduce">
+        <div class="slider-container">
+            <div class="slides" id="slides">
+                <div class="slide">
+                    <h2>📦 書的第一站</h2>
+                    <p>我們收到來自全台各地的二手書，等待展開新旅程。</p>
+                    <div class="image01"></div>
+                </div>
+                <div class="slide">
+                    <h2>🧹 我們怎麼分類</h2>
+                    <p>志工們細心分類、檢查每本書，確保它們的完整與適用性。</p>
+                    <div class="image02"></div>
+                </div>
+                <div class="slide">
+                    <h2>🚚 書去哪裡了</h2>
+                    <p>書本被分派給偏遠地區的學校與孩童，搭上希望的列車。</p>
+                    <div class="image03"></div>
+                </div>
+                <div class="slide">
+                    <h2>😊 孩子收到書</h2>
+                    <p>每一本書，都讓一位孩子的世界更寬廣一點。</p>
+                    <div class="image04"></div>
+                </div>
+                <div class="slide">
+                    <h2>🌐 我們是這趟旅程的橋樑</h2>
+                    <p>連結捐書者與需要的人，我們負責媒合、收書、分類、與配送，讓每一本書能準確送到需要它的地方。</p>
+                </div>
+            </div>
+            <div class="buttons">
+                <button onclick="moveSlide(-1)">&lt</button>
+                <button onclick="moveSlide(1)">&gt</button>
+            </div>
+        </div>
+    </div>
+    <div class="guideToJoin">
+        <hr>
+        <h2>下一站，需要你的參與</h2>
+        <p>不論是一本書、一次幫忙，都是推動教育平權的一份力量。我們誠摯邀請你，成為知識旅程的一份子。</p>
+        <div class="guideButtons">
+            <div class="donateButton"><a href="../donateMoney/donateMoney.html">我要捐</a></div>
+            <a href="#" class="goBackButton"></a>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 BOOKSHARE. All rights reserved.</p>
+            <p>聯絡我們：bookshare@mail.yzu.edu.tw ｜ Facebook:BookShare佈學 / Instagram:BookShare佈學</p>
+
+            <div class="nav-links">
+                <a href="../contactUs/contactUs.html">聯絡我們</a>
+            </div>
+
+            <!-- 最上面箭頭 -->
+            <div class="footer-top-button">
+                <a href="#logo" title="回到最上面">&uArr;</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Loading 頁面控制
+        window.addEventListener('load', function () {
+            const loadingScreen = document.querySelector('.loading-screen');
+            setTimeout(() => {
+                loadingScreen.classList.add('fade-out');
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                    // 開始動畫
+                    document.querySelectorAll('.slogan .h1 p').forEach(p => {
+                        p.classList.add('animate');
+                    });
+                }, 500);
+            }, 1500);
+        });
+
+        let currentSlide = 0;
+        const slides = document.getElementById('slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function moveSlide(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) currentSlide = 4;
+            if (currentSlide >= totalSlides) currentSlide = totalSlides - 5;
+            slides.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.2/dist/gsap.min.js"></script>
+    <script type="module" src="home.js"></script>
+</body>
+
+</html>

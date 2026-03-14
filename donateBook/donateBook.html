@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="donateBook.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css
+    ">
+  <title>Document</title>
+</head>
+
+<body>
+  <nav class="nav-on-top">
+    <div class="logo" id="logo" style="display: flex; align-items: center;">
+      <a href="../home/home.html"><img src="../img/web_Logo.png " alt="logo" draggable="false"></a>
+      BOOKSHARE
+    </div>
+    <div class="topPagination">
+      <div class="dropdown">
+        <button class="dropdown-btn">捐</button>
+        <div class="dropdown-content">
+          <a href="../donateBook/donateBook.html">捐書</a>
+          <a href="../donateMoney/donateMoney.html">捐錢</a>
+        </div>
+      </div>
+      <a class="nor" href="../thankYou/thankYou.html">感謝牆</a>
+      <a class="nor" href="../memberShip/memberShip.html">加入會員</a>
+      <a class="nor" href="../oneBook/oneBook.html">集點活動</a>
+      <a class="nor" href="../wishList/wishList.html">願望清單</a>
+    </div>
+  </nav>
+  <header>
+    <div class="container01">
+      <div class="bookDonateTitle">
+        <div class="bookDonateText">
+          <h1>捐書</h1>
+          <h1>Books Donation</h1>
+          <p>閑置家中保存良好的書都是我們需要的養分</p>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container02">
+      <h2><b>How To Donate?</b></h2>
+      <div class="Cards">
+        <div class="card01" style="width: 18rem;">
+          <img src="./icon-form1.png" class="" alt="...">
+          <div class="card-body">
+            <p class="card-text">Fill Out Form</p>
+          </div>
+        </div>
+        <div class="card02" style="width: 18rem;">
+          <img src="./icon-pack1.png" class="" alt="...">
+          <div class="card-body">
+            <p class="card-text">Packing</p>
+          </div>
+        </div>
+        <div class="card03" style="width: 18rem;">
+          <img src="./icon-send1.png" class="" alt="...">
+          <div class="card-body">
+            <p class="card-text">Sending</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container03">
+      <!-- <img src="./icon-pack2.png" alt=""> -->
+      <ul class="PackingTitle">
+        <li>
+          <img src="./icon-pack2.png" alt="icon" class="packing-icon" />
+          <h2><b>Packing</b></h2>
+        </li>
+      </ul>
+      <ul class="PackingNotice">
+        <li>一次少於20本</li>
+        <li>注意書本包裝減少運送過程損壞</li>
+      </ul>
+    </div>
+    <div class="container04">
+      <ul class="SendingTitle">
+        <li>
+          <h2><b>Sending</b></h2>
+        </li>
+      </ul>
+      <div class="SendingNotice">
+        <ul>
+          <li>超商（符合超商之規定，如：最長邊≦ 45公分，長＋寬＋高合計≦105公分，重量≦ 5公斤）
+            <p>7-11門市：新壢智店</p>
+            <p>全家門市：中壢元智店</p>
+          </li>
+          <li>郵寄地址：320桃園市中壢區遠東路135號元智五館</li>
+          <li>直接送往工作室（請先撥打聯絡電話：：03-463-8800 分機2643）：320桃園市中壢區遠東路135號元智五館</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+  <div id="formModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content">
+      <button class="close-modal" id="closeModalBtn">&times;</button>
+      <form class="p-4">
+        <h2 class="mb-4"><b>Form</b></h2>
+        <div class="mb-3">
+          <label for="name" class="form-label">＊姓名：</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="nickname" class="form-label">暱稱：</label>
+          <input type="text" class="form-control" id="nickname">
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="useNickname">
+          <label class="form-check-label" for="useNickname">使用暱稱</label>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">＊電子信箱：</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">電話號碼：</label>
+          <input type="tel" class="form-control" id="phone">
+        </div>
+        <div class="form-check mb-3">
+          <input class="form-check-input" type="checkbox" id="agreeRule" required>
+          <label class="form-check-label" for="agreeRule">
+            ＊書籍符合捐贈條件（<a href="#" id="showRequirement"
+              style="color:var(--skin-color);text-decoration:underline;">點此查看條件</a>）
+          </label>
+        </div>
+        <button type="submit" class="form-submit-btn">提交</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="requirementModal" class="modal-overlay" style="display:none;">
+    <div class="modal-content" style="max-width: 900px;">
+      <button class="close-modal" id="closeRequirementModalBtn">&times;</button>
+      <h2 class="mb-4" style="font-weight: bold;">Donation requirements</h2>
+      <div style="font-size: 1.3rem;">
+        <div>收：</div>
+        <ul>
+          <li>保存良好之書籍</li>
+        </ul>
+        <div>不收：</div>
+        <ul>
+          <li>書況不良：嚴重破損、缺頁、黏貼、嚴重水痕、嚴重斑點</li>
+          <li>時效性雜誌：政治、時尚、旅遊健康類</li>
+          <li>18禁書籍：涉及賭博、暴力、色情</li>
+          <li>標明不可轉售之書籍</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="donateBook.js"></script>
+  <script>
+  function toggleAnimation(switchElement) {
+      const container = document.querySelector('.book-animation-container');
+      switchElement.classList.toggle('active');
+      container.classList.toggle('active');
+      
+      // 重置動畫
+      if (!switchElement.classList.contains('active')) {
+          const books = document.querySelectorAll('.book');
+          books.forEach(book => {
+              book.style.animation = 'none';
+              book.offsetHeight; // 觸發重繪
+              book.style.animation = null;
+          });
+      }
+  }
+  </script>
+</body>
+
+</html>

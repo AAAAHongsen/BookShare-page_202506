@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登入頁面</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #e6d396;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      position: relative;
+    }
+
+    .circle-background {
+      position: absolute;
+      top: 0%;
+      left: 0%;
+      width: 100vh;
+      height: 100vh;
+      background-image: url(./FBLogo.jpg);
+      background-size: cover;
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .login-box {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 450px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .login-box label {
+      margin-top: 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .login-box input[type="text"],
+    .login-box input[type="password"] {
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid #444;
+      border-radius: 5px;
+      margin-top: 5px;
+      height: 30px;
+    }
+
+    .remember {
+      margin-top: 10px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      height: 60px;
+      gap: 10px;
+    }
+
+    .login-btn,
+    .register-btn {
+      padding: 10px 20px;
+      background-color: #f0804b;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      width: 100%;
+      margin: 5px;
+      font-size: 20px;
+    }
+
+    .login-btn:hover,
+    .register-btn:hover {
+      background-color: #f7f7f7;
+      color: #ea4335;
+      border-color: #ea4335;
+      transition: 0.5s;
+    }
+
+    .login-btn:active,
+    .register-btn:active {
+      background-color: black;
+      color: white;
+      border-color: rgb(91, 251, 251);
+      transition: 0.5s;
+    }
+
+    .social-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .social-login {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 15px;
+      background-color: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #555;
+      border: 1px solid #ccc;
+      transition: background-color 0.3s, color 0.3s;
+      text-decoration: none;
+    }
+
+    .social-login img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .google:hover {
+      background-color: #f7f7f7;
+      color: #ea4335;
+      border-color: #ea4335;
+    }
+
+    .google:active {
+      background-color: #ffe5e0;
+    }
+
+    .facebook:hover {
+      background-color: #f0f4ff;
+      color: #1877f2;
+      border-color: #1877f2;
+    }
+
+    .facebook:active {
+      background-color: #dce6ff;
+    }
+
+    .spaced-text {
+      letter-spacing: 1em;
+      text-decoration: none;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="circle-background"></div>
+
+    <div class="login-box">
+      <label for="username">F B 帳 號 登 入</label>
+      <input type="text" id="username" placeholder="輸入帳號或電話......">
+    
+      <label for="password">密 碼</label>
+      <input type="password" id="password" placeholder="輸入密碼......">
+    
+      <div class="remember">
+        <input type="checkbox" id="remember">
+        <label for="remember">記住帳號</label>
+      </div>
+
+      <!-- 錯誤訊息 -->
+      <div id="error-message" class="error-message"></div>
+
+      <!-- 登入/註冊按鈕 -->
+      <div class="buttons">
+        <button class="login-btn" onclick="login()">登 入</button>
+
+        <a href="memberRegister.html" style="text-decoration: none; width: 100%;">
+          <button class="register-btn">其 他 登 入</button>
+        </a>
+      </div>
+    </div>
+  </div>
+
+      <!-- 第三方登入
+      <div class="social-buttons">
+        <a class="social-login google" href="loginGoogle.html">
+          <img src="./111.png" alt="Google Logo">
+          <span class="spaced-text">GOOGLE登入</span>
+        </a>
+        <a class="social-login facebook" href="loginFB.html">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook">
+          <span class="spaced-text">FB登入</span>
+        </a>
+      </div>
+    </div>
+  </div> -->
+
+  <script>
+    // 假設帳號密碼（測試用）
+    const validAccounts = 
+    [
+      { username: "FBken", password: "123456" },
+      { username: "user@example.com", password: "password" }
+    ];
+
+    function login() 
+    {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const errorDiv = document.getElementById("error-message");
+
+      // 檢查是否為有效帳號
+      const found = validAccounts.find(acc => 
+        acc.username === username && acc.password === password
+      );
+
+      if (found) {
+        // 清除錯誤訊息
+        errorDiv.textContent = "";
+        // 導向登入成功頁面
+        alert("登入成功！");
+        window.location.href = "loginFBSucess.html";
+      } else {
+        errorDiv.textContent = "帳號或密碼錯誤，請重新輸入。";
+      }
+    }
+  </script>
+</body>
+</html>
